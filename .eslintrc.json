@@ -7,7 +7,6 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "eslint-config-prettier",
-    "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
     "eslint-config-airbnb"
   ],
@@ -17,8 +16,16 @@
     "es6": true
   },
   "rules": {
-    "quotes": ["error", "single"] // you can remove if you want
-    // Add your custom rules here
+    "quotes": ["error", "single"],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": true
+      }
+    ]
   },
   "settings": {
     "react": {
