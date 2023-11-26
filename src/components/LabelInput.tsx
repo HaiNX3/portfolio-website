@@ -12,8 +12,6 @@ const LabelInput: FC<LabelInputProps> = ({
   secondary,
   icon,
   onClick,
-}) => {
-  return <></>;
-};
+}) => <></>;
 
 export default LabelInput;

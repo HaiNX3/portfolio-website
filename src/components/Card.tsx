@@ -7,8 +7,6 @@ interface CardProps {
   onClick: () => void;
 }
 
-const Card: FC<CardProps> = ({ children, secondary, icon, onClick }) => {
-  return <></>;
-};
+const Card: FC<CardProps> = ({ children, secondary, icon, onClick }) => <></>;
 
 export default Card;

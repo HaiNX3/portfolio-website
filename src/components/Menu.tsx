@@ -7,8 +7,6 @@ interface MenuProps {
   onClick: () => void;
 }
 
-const Menu: FC<MenuProps> = ({ children, secondary, icon, onClick }) => {
-  return <></>;
-};
+const Menu: FC<MenuProps> = ({ children, secondary, icon, onClick }) => <></>;
 
 export default Menu;

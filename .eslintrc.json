@@ -1,14 +1,16 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react-hooks"],
+  "plugins": ["@typescript-eslint", "react-hooks", "import", "prettier"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "eslint-config-prettier",
-    "eslint-plugin-jsx-a11y",
-    "eslint-config-airbnb"
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "eslint-config-airbnb",
+    "prettier"
   ],
   "env": {
     "browser": true,
@@ -16,20 +18,62 @@
     "es6": true
   },
   "rules": {
-    "quotes": ["error", "single"],
+    "quotes": [2, "single"],
     "react/jsx-sort-props": [
+      2,
+      {
+        "noSortAlphabetically": true,
+        "ignoreCase": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "object-curly-newline": [
       "error",
       {
-        "ignoreDeclarationSort": false,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-        "allowSeparatedGroups": true
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": { "multiline": true, "minProperties": 4 },
+        "ExportDeclaration": "never",
+        "ObjectExpression": { "multiline": true, "minProperties": 1 }
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["webpack.config.js"],
+        "optionalDependencies": false,
+        "peerDependencies": false,
+        "packageDir": "./"
       }
     ]
   },
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"]
+      }
     }
   }
 }
