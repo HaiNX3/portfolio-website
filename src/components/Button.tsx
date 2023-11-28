@@ -2,14 +2,14 @@ import React, { FC, ReactNode } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
-  icon: string;
+  iconSrc: string;
   onClick: () => void;
   secondary: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
   children,
-  icon,
+  iconSrc,
   onClick,
   secondary = false,
 }) => (
@@ -21,13 +21,13 @@ const Button: FC<ButtonProps> = ({
     onClick={onClick}
     type="button"
   >
-    {icon ? (
+    {iconSrc ? (
       <div className="flex items-center gap-2.5 justify-center">
-        <p>{children}</p>
-        <img alt="button icon" src={icon} />
+        <p className="[text-shadow:_0_4px_4px_rgb(0_0_0_/_50%)]">{children}</p>
+        <img alt="button icon" src={iconSrc} />
       </div>
     ) : (
-      <p>{children}</p>
+      <p className="[text-shadow:_0_4px_4px_rgb(0_0_0_/_50%)]">{children}</p>
     )}
   </button>
 );

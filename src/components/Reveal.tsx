@@ -1,14 +1,51 @@
+// framer-motion
+import { motion } from 'framer-motion';
+
+// utils
 import { FC, ReactNode } from 'react';
+import transition from '../utils/transition';
+
+// react
+import { reveal } from '../utils/variants';
 
 interface RevealProps {
   children: ReactNode;
-  secondary: boolean;
-  icon: string;
-  onClick: () => void;
 }
 
-const Reveal: FC<RevealProps> = ({ children, secondary, icon, onClick }) => {
-  return <></>;
-};
+const Reveal: FC<RevealProps> = ({ children }) => (
+  <div className="relative">
+    <motion.div
+      variants={{
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: false,
+      }}
+      transition={transition()}
+    >
+      {children}
+    </motion.div>
+    <motion.div
+      variants={reveal()}
+      initial="hidden"
+      transition={{
+        duration: 0.75,
+        ease: 'easeIn',
+      }}
+      whileInView="visible"
+      viewport={{
+        once: false,
+      }}
+      className="absolute inset-0 bg-secondary z-10"
+    />
+  </div>
+);
 
 export default Reveal;

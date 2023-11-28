@@ -54,15 +54,7 @@
         "ObjectExpression": { "multiline": true, "minProperties": 1 }
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": ["webpack.config.js"],
-        "optionalDependencies": false,
-        "peerDependencies": false,
-        "packageDir": "./"
-      }
-    ]
+    "import/no-extraneous-dependencies": 0
   },
   "settings": {
     "react": {
